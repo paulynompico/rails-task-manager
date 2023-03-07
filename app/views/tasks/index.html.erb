@@ -1,7 +1,17 @@
 <h1>My Tasks</h1>
-<ul>
+<ul class="list-group">
   <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task) %><%= link_to "Delete", delete_path(task), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"} %></li>
+    <li class="list-group-item">
+      <% if task.completed == true %>
+        <i class="fa-regular fa-square-check"></i>
+      <% else %>
+        <i class="fa-regular fa-square"></i>
+      <% end %>
+      <%= link_to task.title, task_path(task) %>
+      <%= link_to delete_path(task), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"}, class: "btn btn-default" do %>
+        <i class="fa-regular fa-trash-can"></i>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 <p><%= link_to "Add new task", new_task_path %></p>
