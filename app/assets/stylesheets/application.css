@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+h1{
+  color: rgb(14, 99, 100);
+}
+
+a, i {
+  text-decoration: none;
+  color: cadetblue;
+}
+
+li {
+  border-radius: 5px;
+}
+
+
+#tasks {
+  width: 65%;
+  padding-top: 20px;
+}
+
+#add_btn:hover {
+  color:rgb(14, 99, 100);
+}

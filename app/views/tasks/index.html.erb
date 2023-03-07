@@ -1,17 +1,24 @@
-<h1>My Tasks</h1>
-<ul class="list-group">
-  <% @tasks.each do |task| %>
-    <li class="list-group-item">
-      <% if task.completed == true %>
-        <i class="fa-regular fa-square-check"></i>
-      <% else %>
-        <i class="fa-regular fa-square"></i>
-      <% end %>
-      <%= link_to task.title, task_path(task) %>
-      <%= link_to delete_path(task), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"}, class: "btn btn-default" do %>
-        <i class="fa-regular fa-trash-can"></i>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
-<p><%= link_to "Add new task", new_task_path %></p>
+<div class="container" id="tasks">
+  <h1>My Tasks</h1>
+  <ul class="list-group">
+    <% @tasks.each do |task| %>
+      <li class="list-group-item d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight align-self-baseline w-100">
+          <% if task.completed == true %>
+            <i class="fa-regular fa-square-check"></i>
+          <% else %>
+            <i class="fa-regular fa-square"></i>
+          <% end %>
+          <%= link_to task.title, task_path(task) %>
+        </div>
+        <div class="p-2 bd-highlight align-self-baseline flex-shrink-1">
+          <%= link_to delete_path(task), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"}, class: "btn btn-default" do %>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <p class="btn pt-3 text-decoration-none" id="add_btn"><%= link_to "Add new task", new_task_path %></p>
+</div>
