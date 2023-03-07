@@ -1,8 +1,5 @@
 <ul>
   <% @tasks.each do |task| %>
-    <li><div>
-      <input type="checkbox" id="<%= task.title%>" name="<%= task.title%>">
-      <label for="<%= task.title%>"><%= task.title %></label>
-    </div></li>
+    <li><%= task.title %></li>
   <% end %>
 </ul>
